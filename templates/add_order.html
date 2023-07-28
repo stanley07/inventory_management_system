@@ -1,0 +1,19 @@
+<!-- templates/add_order.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Add a New Order</h2>
+    <form action="{{ url_for('add_order') }}" method="post">
+        <label for="product_id">Product:</label>
+        <select id="product_id" name="product_id" required>
+            <option value="" disabled selected>Select a product</option>
+            {% for product in products %}
+            <option value="{{ product[0] }}">{{ product[1] }}</option>
+            {% endfor %}
+        </select>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required>
+        <button type="submit">Add Order</button>
+    </form>
+{% endblock %}

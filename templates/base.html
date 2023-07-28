@@ -1,0 +1,28 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Inventory Management System</h1>
+        <a href="#get-started" class="cta-button">Get Started</a>
+    </header>
+   
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('view_products') }}">View Products</a></li>
+            <li><a href="{{ url_for('add_product') }}">Add Product</a></li>
+            <li><a href="{{ url_for('view_orders') }}">View Orders</a></li>
+            <li><a href="{{ url_for('add_order') }}">Add Order</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
